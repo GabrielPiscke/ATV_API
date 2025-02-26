@@ -1,7 +1,6 @@
-package banco;
+package com.example.atv_api.banco;
 
-import model.Aluno;
-import model.Curso;
+import com.example.atv_api.model.Curso;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;

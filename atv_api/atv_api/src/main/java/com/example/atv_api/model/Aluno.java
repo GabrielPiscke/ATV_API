@@ -1,4 +1,4 @@
-package model;
+package com.example.atv_api.model;
 
 public class Aluno{
     private int alunoId;

@@ -1,8 +1,7 @@
-package controller;
+package com.example.atv_api.controller;
 
-import banco.cursoBd;
-import model.Aluno;
-import model.Curso;
+import com.example.atv_api.banco.cursoBd;
+import com.example.atv_api.model.Curso;
 import java.util.List;
 
 public class cursoController {
