@@ -5,33 +5,33 @@ public class Aluno{
     private String nome;
     private String cpf;
 
-    public Aluno(Aluno id, String cpf, String nome) {
-        this.id = id;
-        this.cpf = cpf;
+    public Aluno(int alunoId, String nome, String cpf) {
+        this.alunoId = alunoId;
         this.nome = nome;
+        this.cpf = cpf;
     }
 
-    public Aluno getId() {
-        return id;
+    public int getAlunoId() {
+        return alunoId;
     }
 
-    public String getCpf() {
-        return cpf;
+    public void setAlunoId(int alunoId) {
+        this.alunoId = alunoId;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setId(Aluno id) {
-        this.id = id;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 }
