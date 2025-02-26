@@ -24,6 +24,13 @@ public class cursoController {
     public boolean inserir(Curso curso) {
         return repository.inserir(curso);
     }
+    public Curso inserirAluno(int idCurso, Curso curso) {
+        boolean resultado = repository.atualizarCurso(idCurso, curso);
+        if (resultado) {
+            return repository.inserirAluno();
+        }
+        return null;
+    }
     public Curso atualizarCurso(int idCurso, Curso curso) {
         boolean resultado = repository.atualizarCurso(idCurso, curso);
         if (resultado) {

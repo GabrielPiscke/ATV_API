@@ -44,6 +44,18 @@ public class cursoBd {
        cursos.add(curso);
         return true;
     }
+    public boolean inserirAluno(int idCurso, Curso curso) {
+        Curso cursoBd = cursos.stream()
+                .filter(objeto -> objeto.getIdCurso() == idCurso)
+                .findFirst()
+                .orElse(null);
+        if (cursoBd == null){
+            return false;
+        }
+       ;
+        return true;
+    }
+
     public boolean atualizarCurso(int idCurso, Curso curso) {
        Curso cursoBd = cursos.stream()
                 .filter(objeto -> objeto.getIdCurso() == idCurso)
