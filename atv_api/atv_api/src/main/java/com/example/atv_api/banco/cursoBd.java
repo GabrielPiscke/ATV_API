@@ -27,6 +27,19 @@ public class cursoBd {
                 .findFirst()
                 .orElse(null);
     }
+    public Curso filtroProf(String nome){
+        return cursos.stream()
+                .filter(cur -> cur.getProfessor().getNome() == nome)
+                .findFirst()
+                .orElse(null);
+    }
+    public Curso filtroSala(int numeroSala){
+        return cursos.stream()
+                .filter(cur -> cur.getNemeroSala() == numeroSala)
+                .findFirst()
+                .orElse(null);
+    }
+
     public boolean inserir(Curso curso){
        cursos.add(curso);
         return true;
@@ -44,16 +57,16 @@ public class cursoBd {
         cursoBd.setProfessor(curso.getProfessor());
         return true;
     }
-//    public boolean atualizarAluno(int alunoId, Aluno aluno) {
+//    public boolean atualizarAluno(int alunoId, Curso aluno) {
 //        Curso cursoBd = cursos.stream()
-//                .filter(objeto -> objeto. == alunoId)
+//                .filter(objeto -> objeto.getAlunos().getFirst().getAlunoId() == alunoId)
 //                .findFirst()
 //                .orElse(null);
 //        if (cursoBd == null){
 //            return false;
 //        }
-//        cursoBd.setArrayList(aluno.getNome());
-//        cursoBd.setArrayList(aluno.getCpf());
+//        cursoBd.setNome(aluno.getNome());
+//        cursoBd.setAlunos(aluno.getCpf());
 //        return true;
 //    }
     public boolean removerCurso(@PathVariable int idCurso) {

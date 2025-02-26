@@ -14,6 +14,13 @@ public class cursoController {
     public Curso getById(int idCurso) {
         return repository.getByid(idCurso);
     }
+    public Curso filtroProf(String nome) {
+        return repository.filtroProf(nome);
+    }
+    public Curso filtroSala(int numeroSala) {
+        return repository.filtroSala(numeroSala);
+    }
+
     public boolean inserir(Curso curso) {
         return repository.inserir(curso);
     }

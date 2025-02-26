@@ -19,6 +19,14 @@ public class cursoView {
     public Curso getById(@PathVariable int cursoId) {
         return controller.getById(cursoId);
     }
+    @GetMapping ("/professor/{nome}")
+    public Curso getNomeProf(@PathVariable String nome) {
+        return controller.filtroProf(nome);
+    }
+    @GetMapping ("/{numeroSala}")
+    public Curso getNumeroSala(@PathVariable int numeroSala) {
+        return controller.filtroSala(numeroSala);
+    }
     @PostMapping
     public boolean insert(@RequestBody Curso curso){
         return controller.inserir(curso);
