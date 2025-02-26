@@ -8,25 +8,35 @@ import java.util.List;
 public class cursoController {
     cursoBd repository = new cursoBd();
 
-    public List<Curso> getall() {
-        return repository.getById();
+    public List<Curso> getAll() {
+        return repository.encontrarTodos();
     }
 
-    public Aluno getById(int id) {
-        return repository.findAll();
+    public Curso getById(int idCurso) {
+        return repository.getByid(idCurso);
     }
-
-    public String insert(Curso curso) {
-        return repository.insert(curso);
+    public Aluno getAluno(int alunoId) {
+        return repository.getAluno(alunoId);
     }
-
-    public Curso update(int id, Curso curso) {
-        boolean resultado = repository.upadte(id, Curso);
-
-
+    public boolean inserirt(Curso curso) {
+        return repository.inserir(curso);
+    }
+    public Curso atualizarCurso(int idCurso, Curso curso) {
+        boolean resultado = repository.atualizarCurso(idCurso, curso);
         if (resultado) {
             return null;
         }
         return null;
     }
+    public Aluno atualizarAluno(int alunoId, Aluno aluno) {
+        boolean resultado = repository.atualizarAluno(alunoId, aluno);
+        if (resultado) {
+            return null;
+        }
+        return null;
+    }
+    public boolean removerCurso(int idCurso) {
+        return repository.removerCurso(idCurso);
+    }
 }
+
