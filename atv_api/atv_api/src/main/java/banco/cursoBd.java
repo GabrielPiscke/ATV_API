@@ -9,10 +9,13 @@ import java.util.List;
 
 public class cursoBd {
     private List<Curso> cursos;
-    private List<Aluno> alunos;
+    private List<Curso> alunos;
 
     public cursoBd() {
         this.cursos = new ArrayList<>();
+    }
+    public void cursBd() {
+        this.alunos = new ArrayList<>();
     }
 
     public List<Curso> encontrarTodos() {
@@ -22,12 +25,6 @@ public class cursoBd {
     public Curso getByid(int idCurso){
         return cursos.stream()
                 .filter(cur -> cur.getIdCurso() == idCurso)
-                .findFirst()
-                .orElse(null);
-    }
-    public Aluno getAluno(int alunoId){
-        return alunos.stream()
-                .filter(alu -> alu.getAlunoId() == alunoId)
                 .findFirst()
                 .orElse(null);
     }
@@ -49,15 +46,15 @@ public class cursoBd {
         return true;
     }
     public boolean atualizarAluno(int alunoId, Aluno aluno) {
-        Aluno cursoBd = alunos.stream()
-                .filter(objeto -> objeto.getAlunoId() == alunoId)
+        Curso cursoBd = alunos.stream()
+                .filter(objeto -> objeto.getArrayList() == alunoId)
                 .findFirst()
                 .orElse(null);
         if (cursoBd == null){
             return false;
         }
-        cursoBd.setNome(aluno.getNome());
-        cursoBd.setCpf(aluno.getCpf());
+        cursoBd.setArrayList(aluno.getNome());
+        cursoBd.setArrayList(aluno.getCpf());
         return true;
     }
     public boolean removerCurso(@PathVariable int idCurso) {

@@ -19,7 +19,7 @@ public class Aluno{
         this.alunoId = alunoId;
     }
 
-    public String getNome() {
+    public Aluno getNome() {
         return nome;
     }
 
@@ -27,7 +27,7 @@ public class Aluno{
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public Aluno getCpf() {
         return cpf;
     }
 

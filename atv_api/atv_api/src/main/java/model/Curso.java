@@ -38,7 +38,7 @@ public class Curso {
         this.nemeroSala = nemeroSala;
     }
 
-    public Aluno getArrayList() {
+    public Aluno getArrayList(String cpf) {
         return ArrayList;
     }
 
