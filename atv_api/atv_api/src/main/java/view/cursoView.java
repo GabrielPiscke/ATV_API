@@ -6,32 +6,33 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping
-@RequestBody("/Curso")
+@RestController
+@RequestMapping("/curso")
 
 public class cursoView {
     cursoController controller = new cursoController();
-
     @GetMapping
     public List<Curso>getAll(){
-        return controller.getall();
+        return controller.getAll();
     }
     @GetMapping ("/{id}")
-    public Curso public Curso getById(@PathVariable int id) {
-        return CursoController.getById(id);
+    public Curso getById(@PathVariable int id) {
+        return controller.getById(id);
     }
     @PostMapping
-    public boolean inset(@RequestBody Curso curso){
-        return controller instanceof(Curso);
+    public boolean insert(@RequestBody Curso curso){
+        return controller.inserir(curso);
     }
     @PutMapping("/{id}")
-    public Curso update(@RequestBody Curso curso,@PathVariable int id){
-        return controller.update(id, curso);
+    public Curso updateCurso(@RequestBody Curso curso,@PathVariable int id){
+        return controller.atualizarCurso(id, curso);
     }
-
-
-
-
-
-
+    @PutMapping("/{id}")
+    public Curso updateAluno(@RequestBody Curso alunos,@PathVariable int id){
+        return controller.atualizarCurso(id, alunos);
+    }
+    @DeleteMapping("/{id}")
+    public void removerCurso(@PathVariable int idCurso) {
+        controller.removerCurso(idCurso);
+    }
 }

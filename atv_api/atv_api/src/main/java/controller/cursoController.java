@@ -15,10 +15,7 @@ public class cursoController {
     public Curso getById(int idCurso) {
         return repository.getByid(idCurso);
     }
-    public Aluno getAluno(int alunoId) {
-        return repository.getAluno(alunoId);
-    }
-    public boolean inserirt(Curso curso) {
+    public boolean inserir(Curso curso) {
         return repository.inserir(curso);
     }
     public Curso atualizarCurso(int idCurso, Curso curso) {
@@ -28,13 +25,13 @@ public class cursoController {
         }
         return null;
     }
-    public Aluno atualizarAluno(int alunoId, Aluno aluno) {
-        boolean resultado = repository.atualizarAluno(alunoId, aluno);
-        if (resultado) {
-            return null;
-        }
-        return null;
-    }
+//    public Aluno atualizarAluno(int alunoId, Aluno aluno) {
+//        boolean resultado = repository.atualizarAluno(alunoId, aluno);
+//        if (resultado) {
+//            return null;
+//        }
+//        return null;
+//    }
     public boolean removerCurso(int idCurso) {
         return repository.removerCurso(idCurso);
     }

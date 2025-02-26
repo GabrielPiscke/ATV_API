@@ -1,19 +1,22 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Curso {
     private int idCurso;
     private String nome;
     private int nemeroSala;
-    Aluno ArrayList;
-    Professor professor;
+    private ArrayList<Aluno> alunos;
+    private Professor professor;
 
-    public Curso(int idCurso, String nome, int nemeroSala, Aluno arrayList, Professor professor) {
+    public Curso(int idCurso, String nome, int nemeroSala, ArrayList<Aluno> alunos, Professor professor) {
         this.idCurso = idCurso;
         this.nome = nome;
         this.nemeroSala = nemeroSala;
-        ArrayList = arrayList;
+        this.alunos = alunos;
         this.professor = professor;
     }
+
     public int getIdCurso() {
         return idCurso;
     }
@@ -38,12 +41,12 @@ public class Curso {
         this.nemeroSala = nemeroSala;
     }
 
-    public Aluno getArrayList(String cpf) {
-        return ArrayList;
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
     }
 
-    public void setArrayList(Aluno arrayList) {
-        ArrayList = arrayList;
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
     }
 
     public Professor getProfessor() {

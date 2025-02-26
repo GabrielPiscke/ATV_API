@@ -45,20 +45,19 @@ public class cursoBd {
         cursoBd.setProfessor(curso.getProfessor());
         return true;
     }
-    public boolean atualizarAluno(int alunoId, Aluno aluno) {
-        Curso cursoBd = alunos.stream()
-                .filter(objeto -> objeto.getArrayList() == alunoId)
-                .findFirst()
-                .orElse(null);
-        if (cursoBd == null){
-            return false;
-        }
-        cursoBd.setArrayList(aluno.getNome());
-        cursoBd.setArrayList(aluno.getCpf());
-        return true;
-    }
+//    public boolean atualizarAluno(int alunoId, Aluno aluno) {
+//        Curso cursoBd = cursos.stream()
+//                .filter(objeto -> objeto. == alunoId)
+//                .findFirst()
+//                .orElse(null);
+//        if (cursoBd == null){
+//            return false;
+//        }
+//        cursoBd.setArrayList(aluno.getNome());
+//        cursoBd.setArrayList(aluno.getCpf());
+//        return true;
+//    }
     public boolean removerCurso(@PathVariable int idCurso) {
         return cursos.removeIf(cur -> cur.getIdCurso() == (idCurso));
     }
-
 }
