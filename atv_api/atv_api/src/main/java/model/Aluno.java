@@ -1,7 +1,7 @@
 package model;
 
 public class Aluno{
-    private Aluno id;
+    private int alunoId;
     private String nome;
     private String cpf;
 

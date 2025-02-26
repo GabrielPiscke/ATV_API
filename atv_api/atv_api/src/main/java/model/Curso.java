@@ -4,7 +4,7 @@ public class Curso {
     private int idCurso;
     private String nome;
     private int nemeroSala;
-  Aluno ArrayList;
+    Aluno ArrayList;
     Professor professor;
 
     public Curso(int idCurso, String nome, int nemeroSala, Aluno arrayList, Professor professor) {
