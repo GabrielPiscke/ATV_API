@@ -3,6 +3,8 @@ package com.example.atv_api.controller;
 import com.example.atv_api.banco.cursoBd;
 import com.example.atv_api.model.Aluno;
 import com.example.atv_api.model.Curso;
+import com.example.atv_api.model.Professor;
+
 import java.util.List;
 
 public class cursoController {
@@ -29,8 +31,8 @@ public class cursoController {
     public Curso inserirAluno(int idCurso, Aluno aluno) {
             return repository.inserirAluno(idCurso, aluno);
     }
-    public boolean atualizarCurso(int idCurso, Curso curso) {
-        return repository.atualizarCurso(idCurso, curso);
+    public boolean updateCurso(int idCurso, Curso curso, Professor prof) {
+        return repository.atualizarCurso(idCurso, curso, prof);
     }
     public boolean atualizarAluno(int alunoId, Aluno aluno, int idCurso) {
         return repository.atualizarAluno(alunoId, aluno,idCurso);

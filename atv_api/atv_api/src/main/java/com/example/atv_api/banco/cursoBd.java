@@ -2,6 +2,7 @@ package com.example.atv_api.banco;
 
 import com.example.atv_api.model.Aluno;
 import com.example.atv_api.model.Curso;
+import com.example.atv_api.model.Professor;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
@@ -69,7 +70,8 @@ public class cursoBd {
         alunoBd.setCpf(aluno.getCpf());
         return true;
     }
-    public boolean atualizarCurso(int idCurso, Curso curso) {
+
+    public boolean atualizarCurso(int idCurso, Curso curso, Professor prof) {
        Curso cursoBd = cursos.stream()
                 .filter(objeto -> objeto.getIdCurso() == idCurso)
                 .findFirst()
@@ -79,7 +81,9 @@ public class cursoBd {
         }
         cursoBd.setNome(curso.getNome());
         cursoBd.setNemeroSala(curso.getNemeroSala());
-        cursoBd.setProfessor(curso.getProfessor());
+        cursoBd.getProfessor().setSalario(prof.getSalario());
+        cursoBd.getProfessor().setNome(prof.getNome());
+        cursoBd.getProfessor().setCpf(prof.getCpf());
         return true;
     }
 

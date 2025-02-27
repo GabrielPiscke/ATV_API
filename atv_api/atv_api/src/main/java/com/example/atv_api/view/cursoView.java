@@ -3,6 +3,7 @@ package com.example.atv_api.view;
 import com.example.atv_api.controller.cursoController;
 import com.example.atv_api.model.Aluno;
 import com.example.atv_api.model.Curso;
+import com.example.atv_api.model.Professor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,8 +45,8 @@ public class cursoView {
     }
 
     @PutMapping("/{cursoId}")
-    public boolean updateCurso(@RequestBody Curso curso,@PathVariable int cursoId){
-        return controller.atualizarCurso(cursoId, curso);
+    public boolean atualizarCurso(@RequestBody Curso curso,@PathVariable int cursoId, @RequestBody Professor prof){
+        return controller.updateCurso(cursoId, curso, prof);
     }
 
     @PutMapping("/aluno/{alunoId}")
