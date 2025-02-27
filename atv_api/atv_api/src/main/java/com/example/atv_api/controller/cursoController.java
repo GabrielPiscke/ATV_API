@@ -1,6 +1,7 @@
 package com.example.atv_api.controller;
 
 import com.example.atv_api.banco.cursoBd;
+import com.example.atv_api.model.Aluno;
 import com.example.atv_api.model.Curso;
 import java.util.List;
 
@@ -24,27 +25,16 @@ public class cursoController {
     public boolean inserir(Curso curso) {
         return repository.inserir(curso);
     }
-    public Curso inserirAluno(int idCurso, Curso curso) {
-        boolean resultado = repository.atualizarCurso(idCurso, curso);
-        if (resultado) {
-            return repository.inserirAluno();
-        }
-        return null;
+
+    public Curso inserirAluno(int idCurso, Aluno aluno) {
+            return repository.inserirAluno(idCurso, aluno);
     }
-    public Curso atualizarCurso(int idCurso, Curso curso) {
-        boolean resultado = repository.atualizarCurso(idCurso, curso);
-        if (resultado) {
-            return null;
-        }
-        return null;
+    public boolean atualizarCurso(int idCurso, Curso curso) {
+        return repository.atualizarCurso(idCurso, curso);
     }
-//    public Aluno atualizarAluno(int alunoId, Aluno aluno) {
-//        boolean resultado = repository.atualizarAluno(alunoId, aluno);
-//        if (resultado) {
-//            return null;
-//        }
-//        return null;
-//    }
+    public boolean atualizarAluno(int alunoId, Aluno aluno, int idCurso) {
+        return repository.atualizarAluno(alunoId, aluno,idCurso);
+    }
     public boolean removerCurso(int idCurso) {
         return repository.removerCurso(idCurso);
     }

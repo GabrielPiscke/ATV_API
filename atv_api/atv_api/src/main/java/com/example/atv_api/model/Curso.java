@@ -17,6 +17,10 @@ public class Curso {
         this.professor = professor;
     }
 
+    public Curso(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
     public int getIdCurso() {
         return idCurso;
     }

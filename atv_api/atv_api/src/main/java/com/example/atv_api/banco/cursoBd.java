@@ -1,5 +1,6 @@
 package com.example.atv_api.banco;
 
+import com.example.atv_api.model.Aluno;
 import com.example.atv_api.model.Curso;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -7,14 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class cursoBd {
+
     private List<Curso> cursos;
-    private List<Curso> alunos;
 
     public cursoBd() {
         this.cursos = new ArrayList<>();
-    }
-    public void cursBd() {
-        this.alunos = new ArrayList<>();
     }
 
     public List<Curso> encontrarTodos() {
@@ -44,18 +42,33 @@ public class cursoBd {
        cursos.add(curso);
         return true;
     }
-    public boolean inserirAluno(int idCurso, Curso curso) {
+    public Curso inserirAluno(int idCurso, Aluno aluno) {
         Curso cursoBd = cursos.stream()
                 .filter(objeto -> objeto.getIdCurso() == idCurso)
+                .findFirst()
+                .orElse(null);
+        if (cursoBd == null) {
+            System.out.println("Erro");
+        }
+        cursoBd.getAlunos().add(aluno);
+        return cursoBd;
+    }
+    public boolean atualizarAluno(int alunoId, Aluno aluno, int idCurso) {
+        Curso cursoBd = cursos.stream()
+                .filter(objeto -> objeto.getIdCurso() == idCurso)
+                .findFirst()
+                .orElse(null);
+        Aluno alunoBd = cursoBd.getAlunos().stream()
+                .filter(objeto -> objeto.getAlunoId() == alunoId)
                 .findFirst()
                 .orElse(null);
         if (cursoBd == null){
             return false;
         }
-       ;
+        alunoBd.setNome(aluno.getNome());
+        alunoBd.setCpf(aluno.getCpf());
         return true;
     }
-
     public boolean atualizarCurso(int idCurso, Curso curso) {
        Curso cursoBd = cursos.stream()
                 .filter(objeto -> objeto.getIdCurso() == idCurso)
@@ -69,18 +82,7 @@ public class cursoBd {
         cursoBd.setProfessor(curso.getProfessor());
         return true;
     }
-//    public boolean atualizarAluno(int alunoId, Curso aluno) {
-//        Curso cursoBd = cursos.stream()
-//                .filter(objeto -> objeto.getAlunos().getFirst().getAlunoId() == alunoId)
-//                .findFirst()
-//                .orElse(null);
-//        if (cursoBd == null){
-//            return false;
-//        }
-//        cursoBd.setNome(aluno.getNome());
-//        cursoBd.setAlunos(aluno.getCpf());
-//        return true;
-//    }
+
     public boolean removerCurso(@PathVariable int idCurso) {
         return cursos.removeIf(cur -> cur.getIdCurso() == (idCurso));
     }
