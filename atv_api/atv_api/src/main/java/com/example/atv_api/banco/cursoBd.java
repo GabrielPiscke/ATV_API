@@ -28,7 +28,7 @@ public class cursoBd {
     }
     public Curso filtroProf(String nome){
         return cursos.stream()
-                .filter(cur -> cur.getProfessor().getNome() == nome)
+                .filter(cur -> cur.getProfessor().getNome().equals(nome))
                 .findFirst()
                 .orElse(null);
     }
@@ -41,7 +41,7 @@ public class cursoBd {
 
     public boolean inserir(Curso curso){
        cursos.add(curso);
-        return true;
+       return true;
     }
     public Curso inserirAluno(int idCurso, Aluno aluno) {
         Curso cursoBd = cursos.stream()
@@ -49,7 +49,7 @@ public class cursoBd {
                 .findFirst()
                 .orElse(null);
         if (cursoBd == null) {
-            System.out.println("Erro");
+            return null;
         }
         cursoBd.getAlunos().add(aluno);
         return cursoBd;
@@ -63,7 +63,7 @@ public class cursoBd {
                 .filter(objeto -> objeto.getAlunoId() == alunoId)
                 .findFirst()
                 .orElse(null);
-        if (cursoBd == null){
+        if (alunoBd == null){
             return false;
         }
         alunoBd.setNome(aluno.getNome());
