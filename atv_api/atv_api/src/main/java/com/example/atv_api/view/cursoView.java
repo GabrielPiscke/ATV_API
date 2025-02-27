@@ -19,9 +19,9 @@ public class cursoView {
         return controller.getAll();
     }
 
-    @GetMapping ("/{cursoId}")
-    public Curso getById(@PathVariable int cursoId) {
-        return controller.getById(cursoId);
+    @GetMapping ("/{idCurso}")
+    public Curso getByid(@PathVariable int idCurso) {
+        return controller.getByid(idCurso);
     }
 
     @GetMapping ("/professor/{nome}")
@@ -39,17 +39,17 @@ public class cursoView {
         return controller.inserir(curso);
     }
 
-    @PostMapping("{cursoId}/aluno")
-    public Curso insertAluno(@RequestBody Aluno aluno, @PathVariable int cursoId){
-        return controller.inserirAluno(cursoId, aluno);
+    @PostMapping("/aluno/{idCurso}")
+    public Curso insertAluno(@RequestBody Aluno aluno, @PathVariable int idCurso){
+        return controller.inserirAluno(idCurso, aluno);
     }
 
-    @PutMapping("/{cursoId}")
-    public boolean atualizarCurso(@RequestBody Curso curso,@PathVariable int cursoId, @RequestBody Professor prof){
-        return controller.updateCurso(cursoId, curso, prof);
+    @PutMapping("/prof/{idCurso}")
+    public boolean atualizarCurso(@RequestBody Curso curso,@PathVariable int idCurso, @RequestBody Professor prof){
+        return controller.updateCurso(idCurso, curso, prof);
     }
 
-    @PutMapping("/aluno/{alunoId}")
+    @PutMapping("/aluno/{alunoId}/{idCurso}")
     public boolean updateAluno(@RequestBody Aluno aluno,@PathVariable int alunoId,@PathVariable int idCurso){
         return controller.atualizarAluno(alunoId, aluno, idCurso);
     }

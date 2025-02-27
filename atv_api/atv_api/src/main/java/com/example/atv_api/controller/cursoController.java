@@ -14,12 +14,14 @@ public class cursoController {
         return repository.encontrarTodos();
     }
 
-    public Curso getById(int idCurso) {
+    public Curso getByid(int idCurso) {
         return repository.getByid(idCurso);
     }
+
     public Curso filtroProf(String nome) {
         return repository.filtroProf(nome);
     }
+
     public Curso filtroSala(int numeroSala) {
         return repository.filtroSala(numeroSala);
     }
