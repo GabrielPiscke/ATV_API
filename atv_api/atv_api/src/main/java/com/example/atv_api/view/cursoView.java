@@ -20,8 +20,8 @@ public class cursoView {
     }
 
     @GetMapping ("/{idCurso}")
-    public Curso getByid(@PathVariable int idCurso) {
-        return controller.getByid(idCurso);
+    public Curso filtroId(@PathVariable int idCurso) {
+        return controller.filById(idCurso);
     }
 
     @GetMapping ("/professor/{nome}")
@@ -29,7 +29,7 @@ public class cursoView {
         return controller.filtroProf(nome);
     }
 
-    @GetMapping ("/{numeroSala}")
+    @GetMapping ("/sala/{numeroSala}")
     public Curso getNumeroSala(@PathVariable int numeroSala) {
         return controller.filtroSala(numeroSala);
     }
@@ -39,23 +39,23 @@ public class cursoView {
         return controller.inserir(curso);
     }
 
-    @PostMapping("/aluno/{idCurso}")
+    @PostMapping("/{idCurso}/aluno")
     public Curso insertAluno(@RequestBody Aluno aluno, @PathVariable int idCurso){
         return controller.inserirAluno(idCurso, aluno);
     }
 
-    @PutMapping("/prof/{idCurso}")
+    @PutMapping("{idCurso}/prof")
     public boolean atualizarCurso(@RequestBody Curso curso,@PathVariable int idCurso, @RequestBody Professor prof){
         return controller.updateCurso(idCurso, curso, prof);
     }
 
-    @PutMapping("/aluno/{alunoId}/{idCurso}")
+    @PutMapping("/{idCurso}/aluno/{alunoId}")
     public boolean updateAluno(@RequestBody Aluno aluno,@PathVariable int alunoId,@PathVariable int idCurso){
         return controller.atualizarAluno(alunoId, aluno, idCurso);
     }
 
-    @DeleteMapping("/{idCurso}")
-    public void removerCurso(@PathVariable int idCurso) {
+    @DeleteMapping("/{idCurso}/delete")
+    public void removeCurso(@PathVariable int idCurso) {
         controller.removerCurso(idCurso);
     }
 }

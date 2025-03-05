@@ -14,7 +14,7 @@ public class cursoController {
         return repository.encontrarTodos();
     }
 
-    public Curso getByid(int idCurso) {
+    public Curso filById(int idCurso) {
         return repository.getByid(idCurso);
     }
 
@@ -33,12 +33,15 @@ public class cursoController {
     public Curso inserirAluno(int idCurso, Aluno aluno) {
             return repository.inserirAluno(idCurso, aluno);
     }
+
     public boolean updateCurso(int idCurso, Curso curso, Professor prof) {
         return repository.atualizarCurso(idCurso, curso, prof);
     }
+
     public boolean atualizarAluno(int alunoId, Aluno aluno, int idCurso) {
         return repository.atualizarAluno(alunoId, aluno,idCurso);
     }
+
     public boolean removerCurso(int idCurso) {
         return repository.removerCurso(idCurso);
     }
